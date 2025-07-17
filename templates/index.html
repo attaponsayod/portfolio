@@ -1,0 +1,231 @@
+<!-- 
+  Hello 😊.
+
+  This template is designed and developed by Nisar Hassan Naqvi
+  for anyone to use for free or customize the way they like.
+
+  Github Repo: https://github.com/nisarhassan12/portfolio-template/
+  My Website: https://nisar.dev
+
+  For business & inquires, contact me => syednisarhassan12@gmail.com
+-->
+
+<!--
+  Follow the instructions written in comments to create your stunning portfolio
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
+  <title>Attapon Sayod | Data Engineer</title>
+  <meta name="description" content="Add small description of yourslef.">
+  <meta name="keywords" content="Put your name, skills and some coding keywords" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+
+  <!-- ***** Header ***** -->
+
+  <header class="header" role="banner" id="top">
+    <div class="row">
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+          <li class="nav__item"><a href="#clients" class="nav__link">Clients</a></li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__text-box row">
+      <div class="header__text">
+        <h1 class="heading-primary">
+          <!-- Replace the following name with your name -->
+          <span>Attapon Sayod</span>
+        </h1>
+        <!-- Put a small paragraph about yourself -->
+        <p>A Data Engineer based in Stockholm, Sweden.</p>
+        <a href="#contact" class="btn btn--pink">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- ***** Work ***** -->
+
+    <section class="work" id="work">
+      <div class="row">
+        <h2>My Work</h2>
+        <div class="work__boxes">
+          <div class="work__box">
+
+          <!-- Each div with the work__box class is a project. -->
+
+            <div class="work__text">
+              <h3>ID Reader</h3>
+              <h1>Purpose</h1>
+              <p>
+                The purpose of the ID Reader project is to create a more secure, agile and GDPR-compliant 
+                way to register people entering and exiting a sensitive room. 
+                The solution should also meet requirements that can be set according to ISO standards 
+                and serve as a proof of concept for how simple technology like a Raspberry Pi can be used in a security and logging context.
+              </p>
+              <h1>Problem</h1>
+              <p>
+                Currently, a manual system is used where people entering and exiting a specific room must write down their name and time of entry and exit on a physical piece of paper. This poses several problems:
+
+                <li>Time-consuming: It takes time to manually fill in the information each time.</li>
+                <li>Lack of security: The information is easily accessible to unauthorized people and can be manipulated or stolen.</li>
+                <li>Not GDPR-safe: Personal data is stored openly and can be read by others.</li>
+                <li>Limited traceability and no automation: It is difficult to perform analysis or control access afterwards.</li>
+                <li>Not ISO compliant: The current system does not meet the requirements for security and traceability.</li>
+              </p>
+              <h1>Solution</h1>
+              <p>
+                The solution is a digital system where the user places their ID card in a drawer. 
+                A camera connected to a Raspberry Pi takes a picture of the card. When the user presses a button, 
+                a Python program is activated that reads the name using image processing/OCR. 
+                The information is sent via MQTT to another Raspberry Pi that stores the name along with a timestamp in a SQL database.
+
+                <li>Automates the process and saves time.</li>
+                <li>Protects information by storing it digitally instead of physically.</li>
+                <li>Enables traceability with precise logging of entry and exit.</li>
+                <li>Can be expanded for additional security features (e.g. door control, authentication).</li>
+                <li>Better complies with GDPR by minimizing manual handling of personal data.</li>
+                <li>Can be adapted to meet ISO requirements for security and traceability.</li>
+            </div>
+            <div class="work__image-box">
+                <video class="work__image" controls autoplay loop muted>
+                  <source src="{{ url_for('static', filename='video/videoplayback.mp4') }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+<!-- 
+          <div class="work__box">
+            <div class="work__text">
+              <h3>Notificator</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                eius.
+              </p>
+              <ul class="work__list">
+                <li>React</li>
+                <li>Next.js</li>
+                <li>Node</li>
+                <li>MongoDB</li>
+              </ul>
+
+              <div class="work__links">
+                <a href="#" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="#">
+                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/project-3.png" class="work__image" alt="Project 3" /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** Clients ***** -->
+
+    <section class="client" id="clients">
+      <div class="row">
+        <h2>Clients</h2>
+        <div class="client__logos">
+          <!-- Add logos of the clients or companies you'have worked with. -->
+          <img src="{{ url_for('static', filename='images/PodManagerLogo.png') }}" class="client__logo" alt="Company 2" />
+          <img src="{{ url_for('static', filename='images/saab-2-logo-png-transparent.png') }}" class="client__logo" alt="Company 3" />
+          <img src="{{ url_for('static', filename='images/CurtissWrightLogo.png') }}" class="client__logo" alt="Company 1" />
+          <img src="{{ url_for('static', filename='images/Logo-Polarium-RGB_White-1.png') }}" class="client__logo" alt="Company 1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** About ***** -->
+
+    <section class="about" id="about">
+      <div class="row">
+        <h2>About Me</h2>
+        <div class="about__content">
+          <div class="about__text">
+            <!-- Replace the below paragraph with info about yourself -->
+            <p>
+              Hi, I'm Attapon Sayod, and I'm 22 years old (turning 23 this October). 
+              Originally from Thailand, I moved to Sweden when I was four, so I've essentially grown up here. 
+              I recently relocated to Stockholm from Arboga to pursue my passion for data engineering. 
+              Outside of my professional aspirations, I'm deeply interested in fitness, particularly Muay Thai and MMA, and I enjoy watching UFC.
+            </p>
+            <!-- Provide a link to your resume -->
+            <a href="#" class="btn">My Resume</a>
+          </div>
+
+          <div class="about__photo-container">
+            <!-- Add a nice photo of yourself -->
+            <img class="about__photo" src="{{ url_for('static', filename='images/494690965_715479214417096_4733649038234710786_n.jpg') }}" alt="Attapon Sayod Photo" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ***** Contact ***** -->
+
+  <section class="contact" id="contact">
+    <div class="row">
+      <h2>Get in Touch</h2>
+      <div class="contact__info">
+        <p>
+          Looking for a collaborative team player to represent your business or product? Need a consultation, have a question, or some advice for me? Or simply want to say hello? 
+          I'm always happy to connect! Email and Linkedin is the most efficient way to reach me, and I look forward to hearing from you.
+        </p>
+        <!-- Replace the email with yours -->
+        <a href="mailto:attaponsayod@hotmail.com" class="btn">attaponsayod@hotmail.com</a>
+        <a href="https://www.linkedin.com/in/attapon-sayod/" class="btn">Linkedin</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <!-- Update the links to point to your accounts -->
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/attapon-sayod/">
+            <img src="{{ url_for('static', filename='images/linkedin.svg') }}" alt="Linkedin">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" title="Back to Top">
+    <img src="{{ url_for('static', filename='images/arrow-up.svg') }}" alt="Back to Top" class="back-to-top__image"/>
+  </a>
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>
