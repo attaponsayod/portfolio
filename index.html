@@ -47,60 +47,67 @@
 
     <!-- ***** Work ***** -->
 
-    <section class="work" id="work">
-      <div class="row">
-        <h2>My Work</h2>
-        <div class="work__boxes">
-          <div class="work__box">
+<section class="work" id="work">
+  <div class="row">
+    <h2>My Work</h2>
+    <div class="work__boxes">
+      <div class="work__box">
+        <button id="toggleBtn" onclick="toggleParagraph()" class="btn">
+          ID Reader
+        </button>
+        <div class="work__text" id="idReaderText">
+            <div class="work__content-wrapper">
+                <h3>ID Reader</h3>
 
-          <!-- Each div with the work__box class is a project. -->
+                <h1>Purpose</h1>
+                <p>
+                    The purpose of the ID Reader project is to create a more secure, agile and GDPR-compliant
+                    way to register people entering and exiting a sensitive room. The solution should also meet
+                    requirements that can be set according to ISO standards and serve as a proof of concept for
+                    how simple technology like a Raspberry Pi can be used in a security and logging context.
+                </p>
 
-            <div class="work__text">
-              <h3>ID Reader</h3>
-              <h1>Purpose</h1>
-              <p>
-                The purpose of the ID Reader project is to create a more secure, agile and GDPR-compliant 
-                way to register people entering and exiting a sensitive room. 
-                The solution should also meet requirements that can be set according to ISO standards 
-                and serve as a proof of concept for how simple technology like a Raspberry Pi can be used in a security and logging context.
-              </p>
-              <h1>Problem</h1>
-              <p>
-                Currently, a manual system is used where people entering and exiting a specific room must write down their name and time of entry and exit on a physical piece of paper. This poses several problems:
+                <h1>Problem</h1>
+                <p>
+                   Currently, a manual system is used where people entering and exiting a specific room must
+                   write down their name and time of entry and exit on a physical piece of paper. This poses
+                   several problems:
+                </p>
+                <ul>
+                  <li>Time-consuming: It takes time to manually fill in the information each time.</li>
+                  <li>Lack of security: The information is easily accessible to unauthorized people and can be manipulated or stolen.</li>
+                  <li>Not GDPR-safe: Personal data is stored openly and can be read by others.</li>
+                  <li>Limited traceability and no automation: It is difficult to perform analysis or control access afterwards.</li>
+                  <li>Not ISO compliant: The current system does not meet the requirements for security and traceability.</li>
+                </ul>
 
-                <li>Time-consuming: It takes time to manually fill in the information each time.</li>
-                <li>Lack of security: The information is easily accessible to unauthorized people and can be manipulated or stolen.</li>
-                <li>Not GDPR-safe: Personal data is stored openly and can be read by others.</li>
-                <li>Limited traceability and no automation: It is difficult to perform analysis or control access afterwards.</li>
-                <li>Not ISO compliant: The current system does not meet the requirements for security and traceability.</li>
-              </p>
-              <h1>Solution</h1>
-              <p>
-                The solution is a digital system where the user places their ID card in a drawer. 
-                A camera connected to a Raspberry Pi takes a picture of the card. When the user presses a button, 
-                a Python program is activated that reads the name using image processing/OCR. 
-                The information is sent via MQTT to another Raspberry Pi that stores the name along with a timestamp in a SQL database.
-
-                <li>Automates the process and saves time.</li>
-                <li>Protects information by storing it digitally instead of physically.</li>
-                <li>Enables traceability with precise logging of entry and exit.</li>
-                <li>Can be expanded for additional security features (e.g. door control, authentication).</li>
-                <li>Better complies with GDPR by minimizing manual handling of personal data.</li>
-                <li>Can be adapted to meet ISO requirements for security and traceability.</li>
+                <h1>Solution</h1>
+                <p>
+                  The solution is a digital system where the user places their ID card in a drawer. A camera
+                  connected to a Raspberry Pi takes a picture of the card. When the user presses a button,
+                  a Python program is activated that reads the name using image processing/OCR. The information
+                  is sent via MQTT to another Raspberry Pi that stores the name along with a timestamp in a SQL database.
+                </p>
+                <ul>
+                  <li>Automates the process and saves time.</li>
+                  <li>Protects information by storing it digitally instead of physically.</li>
+                  <li>Enables traceability with precise logging of entry and exit.</li>
+                  <li>Can be expanded for additional security features (e.g. door control, authentication).</li>
+                  <li>Better complies with GDPR by minimizing manual handling of personal data.</li>
+                  <li>Can be adapted to meet ISO requirements for security and traceability.</li>
+                </ul>
             </div>
             <div class="work__image-box">
                 <video class="work__image" controls autoplay loop muted>
                   <source src="videoplayback.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-              </div>
             </div>
-
-            </div>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- ***** Clients ***** -->
 

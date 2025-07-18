@@ -178,9 +178,9 @@ p {
 }
 
 @media(max-width: 900px) {
-    p { 
+    /* p { 
         max-width: var(--container-small-width);
-    }
+    } */
 }
 
 /* --------------------------------------- */
@@ -214,13 +214,51 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .btn {
-    position: relative;
-    display: inline-block;
-    padding: 1rem 4.2rem;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid  var(--pink);
-    font-weight: 400;
+  width: 300px;
+  box-sizing: border-box; /* include padding and border in width */
+  padding: 1rem 1rem; /* balanced padding */
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--light-text);
+  border: 1px solid var(--pink);
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.5rem;
+  appearance: none;
+  transition: background 0.3s ease;
+}
+
+.btn-text {
+  display: inline-block;
+  position: absolute;
+  min-width: 7rem;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap; 
+  font-size: inherit; 
+  width: auto;
+}
+
+.btn-text-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn.active {
+  background: crimson;
+  transform: Start(0deg); /* or shake, scale, whatever you like */
+}
+
+.btn {
+  transition: all 0.3s ease;
 }
 
 .btn:focus {
@@ -234,30 +272,40 @@ body:not(.user-is-tabbing) a:focus {
     top: 0;
     left: 0;
     right: 100%;
-    background: var(--white);
+    background: var(--white); /* This is the background for the initial state hover effect */
     height: 100%;
     z-index: -1;
     transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
 }
 
-.btn:hover::after,
-.btn:focus::after {
+.btn:hover::after {
     right: 0;
-    background: var(--pink);
+    background: var(--pink); 
 }
 
+
+.btn:focus {
+    outline: none; 
+}
+
+
+/* Modifier class for the pink button variant */
 .btn--pink {
-    background: var(--pink);
-    transition: all 0.2s;
+    background: var(--pink); /* Solid pink background */
+    border-color: var(--pink); /* Border matches background */
+    color: var(--white); /* White text for pink background */
+    transition: all 0.2s; /* Smooth transition for background change */
 }
 
 .btn--pink::after {
-    display: none;
+    display: none; /* Hide the ::after element for this variant as it has a solid background */
 }
 
 .btn--pink:hover,
 .btn--pink:focus {
-    background: transparent;
+    background: transparent; /* On hover, revert to transparent background */
+    color: var(--light-text); /* Text color when background is transparent on hover */
+    border-color: var(--pink); /* Maintain pink border on hover */
 }
 
 .link__text {
@@ -468,7 +516,100 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .work__text {
-    flex: 0 0 30%;
+    display: flex;
+    flex-direction: row; /* Arrange text and video side-by-side by default */
+    align-items: flex-start; /* Align content to the top */
+    gap: 3rem; /* Space between the text content and the video box */
+
+    margin-top: 1rem;
+    max-width: 1200px; /* Set a maximum width for the text content */
+    margin-left: auto; /* Center the text content */
+    margin-right: auto; /* Center the text content */
+
+    /* Properties for smooth transition (keep as is) */
+    max-height: 0; /* Start with 0 height to hide content initially */
+    opacity: 0; /* Start with 0 opacity to make it invisible */
+    overflow: hidden; /* Hide content that overflows when max-height is 0 */
+    transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Adjust time if needed */
+    will-change: max-height, opacity; /* Performance hint for browsers */
+
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* NEW CLASS: This class will be added by JavaScript to reveal the content */
+.work__text.show {
+    display: block;
+    /* We will determine this dynamically in JavaScript for precise height,
+       or you can set a large enough fixed value if content height is predictable. */
+    max-height: 5000px; /* Example: A value larger than the max possible height of your content */
+    opacity: 1; /* Make it fully visible */
+}
+
+/* You might need additional styles for spacing inside work__text */
+.work__text h3,
+.work__text h1,
+.work__text p,
+.work__text ul {
+    margin: 0; /* Remove default top/bottom margins to prevent collapse issues */
+    padding: 0.5rem 0; /* Add back consistent vertical padding if desired */
+    /* Remove any padding-left/right here if it was duplicate with .work__text padding */
+}
+
+/* This is where you control the split between text and video */
+.work__content-wrapper {
+    flex: 1; 
+    min-width: 300px;
+    max-width: none;
+    margin-left: 50px;
+}
+
+/* Specific styling for the video box */
+.work__image-box {
+    flex: 0 0 500px;
+    min-width: 800px;
+    height: 500px;
+    margin-top: 0;
+    margin-left: 50px;
+    margin-right: 0;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    overflow: hidden;
+}
+
+.work__image-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 20000px) {
+    .work__text {
+        flex-direction: column;
+        align-items: left;
+        gap: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%; 
+    }
+    .work__content-wrapper {
+        flex: 1;
+        width: 100%;
+        max-width: none;
+    }
+    .work__image-box {
+        flex: 1;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin-top: 2rem;
+    }
+    .work__image-box video {
+        height: auto;
+    }
 }
 
 .work__list {
@@ -486,10 +627,6 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__code:hover {
     transform: scale(1.2);
-}
-
-.work__image-box {
-    margin-left: 4rem; /* Adjust the value as needed for more or less space */
 }
 
 

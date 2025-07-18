@@ -41,3 +41,20 @@ window.addEventListener("scroll", () => {
     alterStyles(isBackToTopRendered);
   }
 });
+
+function toggleParagraph() {
+  const el = document.getElementById('idReaderText');
+  const button = document.getElementById('toggleBtn');
+
+  el.classList.toggle('show');
+  button.classList.toggle('active');
+
+  // Change button text directly based on state
+  if (el.classList.contains('show')) {
+    button.textContent = 'X'; // When content is shown
+  } else {
+    button.textContent = 'ID Reader'; // When content is hidden
+  }
+
+  button.blur();
+}
