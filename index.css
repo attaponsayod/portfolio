@@ -134,11 +134,11 @@ h3 {
     font-weight: 400;
 }
 
-@media(max-width: 900px) {
+/* @media(max-width: 900px) {
     .heading-primary {
         font-size: 6.5rem;
     }
-}
+} */
 
 h2 {
     font-size: var(--font-size-large);
@@ -177,11 +177,11 @@ p {
     margin: var(--gutter-small-1) 0;
 }
 
-@media(max-width: 900px) {
-    /* p { 
+/* @media(max-width: 900px) {
+    p { 
         max-width: var(--container-small-width);
-    } */
-}
+    }
+} */
 
 /* --------------------------------------- */
 /* ----- Buttons and Links ----- */
@@ -367,11 +367,11 @@ body:not(.user-is-tabbing) a:focus {
     height: 70%;
 }
 
-@media(max-width: 900px) {
+/* @media(max-width: 900px) {
     .back-to-top {
         right: 2rem;
     }
-}
+} */
 
 @media(max-width: 500px) {
     .back-to-top {
@@ -488,20 +488,21 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Work ----- */
 /* --------------------------------------- */
 
+.work__boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* space between project rows */
+}
+
 .work__box {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-@media(max-width: 900px) {
-    .work__box {
-        align-items: initial;
-        flex-direction: column-reverse;
-    }
-}
 
 .work__box:not(:last-child) {
-    margin-bottom: 25rem;
+    margin-bottom: auto;
 }
 
 @media(max-width: 500px) {
@@ -518,7 +519,7 @@ body:not(.user-is-tabbing) a:focus {
 .work__text {
     display: flex;
     flex-direction: row; /* Arrange text and video side-by-side by default */
-    align-items: flex-start; /* Align content to the top */
+    align-items: stretch; /* Align content to the top */
     gap: 3rem; /* Space between the text content and the video box */
 
     margin-top: 1rem;
@@ -530,7 +531,7 @@ body:not(.user-is-tabbing) a:focus {
     max-height: 0; /* Start with 0 height to hide content initially */
     opacity: 0; /* Start with 0 opacity to make it invisible */
     overflow: hidden; /* Hide content that overflows when max-height is 0 */
-    transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Adjust time if needed */
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out; /* Adjust time if needed */
     will-change: max-height, opacity; /* Performance hint for browsers */
 
     padding-top: 1.5rem;
@@ -541,10 +542,8 @@ body:not(.user-is-tabbing) a:focus {
 
 /* NEW CLASS: This class will be added by JavaScript to reveal the content */
 .work__text.show {
-    display: block;
-    /* We will determine this dynamically in JavaScript for precise height,
-       or you can set a large enough fixed value if content height is predictable. */
-    max-height: 5000px; /* Example: A value larger than the max possible height of your content */
+visibility: visible;    
+max-height: 5000px; /* Example: A value larger than the max possible height of your content */
     opacity: 1; /* Make it fully visible */
 }
 
@@ -563,53 +562,26 @@ body:not(.user-is-tabbing) a:focus {
     flex: 1; 
     min-width: 300px;
     max-width: none;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 /* Specific styling for the video box */
 .work__image-box {
-    flex: 0 0 500px;
-    min-width: 800px;
-    height: 500px;
-    margin-top: 0;
-    margin-left: 50px;
-    margin-right: 0;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    overflow: hidden;
+    flex: 1;
+    min-width: 0; /* REMOVE 800px */
+    max-width: 600px; /* Optional constraint */
+    height: auto;
+    margin-left: 0; /* REMOVE THIS TOO */
+    margin-top: 50rem; /* Space between text and video */
 }
 
 .work__image-box video {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-@media (max-width: 20000px) {
-    .work__text {
-        flex-direction: column;
-        align-items: left;
-        gap: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%; 
-    }
-    .work__content-wrapper {
-        flex: 1;
-        width: 100%;
-        max-width: none;
-    }
-    .work__image-box {
-        flex: 1;
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        margin-top: 2rem;
-    }
-    .work__image-box video {
-        height: auto;
-    }
+    height: auto; /* Let it scale naturally */
+    aspect-ratio: 16 / 9; /* Set your desired aspect ratio */
+    display: block; /* Removes inline spacing from default video tag */
+    object-fit: cover; /* Fills the box more naturally, adjust as needed */
+    background-color: black; /* Optional: match the background if needed */
 }
 
 .work__list {
@@ -672,12 +644,12 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
 }
 
-@media(max-width: 900px) {
+/* @media(max-width: 900px) {
     .about__content {
         flex-direction: column-reverse;
         align-items: initial;
     }
-}
+} */
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);

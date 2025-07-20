@@ -42,18 +42,18 @@ window.addEventListener("scroll", () => {
   }
 });
 
-function toggleParagraph() {
-  const el = document.getElementById('idReaderText');
-  const button = document.getElementById('toggleBtn');
+function toggleParagraph(buttonId, textId, buttonText) {
+  const el = document.getElementById(textId);
+  const button = document.getElementById(buttonId);
 
   el.classList.toggle('show');
   button.classList.toggle('active');
 
   // Change button text directly based on state
   if (el.classList.contains('show')) {
-    button.textContent = 'X'; // When content is shown
+    button.textContent = 'X';
   } else {
-    button.textContent = 'ID Reader'; // When content is hidden
+    button.textContent = buttonText;
   }
 
   button.blur();

@@ -52,64 +52,105 @@
     <h2>My Work</h2>
     <div class="work__boxes">
       <div class="work__box">
-        <button id="toggleBtn" onclick="toggleParagraph()" class="btn">
-          ID Reader
-        </button>
-        <div class="work__text" id="idReaderText">
-            <div class="work__content-wrapper">
-                <h3>ID Reader</h3>
+          <button id="toggleBtn" onclick="toggleParagraph('toggleBtn', 'idReaderText', 'ID Reader')" class="btn">ID Reader</button>
+          <div class="work__text" id="idReaderText">
+              <div class="work__content-wrapper">
+                  <h3>ID Reader</h3>
 
-                <h1>Purpose</h1>
-                <p>
-                    The purpose of the ID Reader project is to create a more secure, agile and GDPR-compliant
-                    way to register people entering and exiting a sensitive room. The solution should also meet
-                    requirements that can be set according to ISO standards and serve as a proof of concept for
-                    how simple technology like a Raspberry Pi can be used in a security and logging context.
-                </p>
+                  <h1>Purpose</h1>
+                  <p>
+                      The purpose of the ID Reader project is to create a more secure, agile and GDPR-compliant
+                      way to register people entering and exiting a sensitive room. The solution should also meet
+                      requirements that can be set according to ISO standards and serve as a proof of concept for
+                      how simple technology like a Raspberry Pi can be used in a security and logging context.
+                  </p>
 
-                <h1>Problem</h1>
-                <p>
-                   Currently, a manual system is used where people entering and exiting a specific room must
-                   write down their name and time of entry and exit on a physical piece of paper. This poses
-                   several problems:
-                </p>
-                <ul>
-                  <li>Time-consuming: It takes time to manually fill in the information each time.</li>
-                  <li>Lack of security: The information is easily accessible to unauthorized people and can be manipulated or stolen.</li>
-                  <li>Not GDPR-safe: Personal data is stored openly and can be read by others.</li>
-                  <li>Limited traceability and no automation: It is difficult to perform analysis or control access afterwards.</li>
-                  <li>Not ISO compliant: The current system does not meet the requirements for security and traceability.</li>
-                </ul>
+                  <h1>Problem</h1>
+                  <p>
+                    Currently, a manual system is used where people entering and exiting a specific room must
+                    write down their name and time of entry and exit on a physical piece of paper. This poses
+                    several problems:
+                  </p>
+                  <ul>
+                    <li>Time-consuming: It takes time to manually fill in the information each time.</li>
+                    <li>Lack of security: The information is easily accessible to unauthorized people and can be manipulated or stolen.</li>
+                    <li>Not GDPR-safe: Personal data is stored openly and can be read by others.</li>
+                    <li>Limited traceability and no automation: It is difficult to perform analysis or control access afterwards.</li>
+                    <li>Not ISO compliant: The current system does not meet the requirements for security and traceability.</li>
+                  </ul>
 
-                <h1>Solution</h1>
-                <p>
-                  The solution is a digital system where the user places their ID card in a drawer. A camera
-                  connected to a Raspberry Pi takes a picture of the card. When the user presses a button,
-                  a Python program is activated that reads the name using image processing/OCR. The information
-                  is sent via MQTT to another Raspberry Pi that stores the name along with a timestamp in a SQL database.
-                </p>
-                <ul>
-                  <li>Automates the process and saves time.</li>
-                  <li>Protects information by storing it digitally instead of physically.</li>
-                  <li>Enables traceability with precise logging of entry and exit.</li>
-                  <li>Can be expanded for additional security features (e.g. door control, authentication).</li>
-                  <li>Better complies with GDPR by minimizing manual handling of personal data.</li>
-                  <li>Can be adapted to meet ISO requirements for security and traceability.</li>
-                </ul>
-            </div>
-            <div class="work__image-box">
-                <video class="work__image" controls autoplay loop muted>
-                  <source src="videoplayback.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-            </div>
+                  <h1>Solution</h1>
+                  <p>
+                    The solution is a digital system where the user places their ID card in a drawer. A camera
+                    connected to a Raspberry Pi takes a picture of the card. When the user presses a button,
+                    a Python program is activated that reads the name using image processing/OCR. The information
+                    is sent via MQTT to another Raspberry Pi that stores the name along with a timestamp in a SQL database.
+                  </p>
+                  <ul>
+                    <li>Automates the process and saves time.</li>
+                    <li>Protects information by storing it digitally instead of physically.</li>
+                    <li>Enables traceability with precise logging of entry and exit.</li>
+                    <li>Can be expanded for additional security features (e.g. door control, authentication).</li>
+                    <li>Better complies with GDPR by minimizing manual handling of personal data.</li>
+                    <li>Can be adapted to meet ISO requirements for security and traceability.</li>
+                  </ul>
+              </div>
+              <div class="work__image-box">
+                  <video class="work__image" controls autoplay loop muted>
+                    <source src="videoplayback.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+              </div>
+          </div>
         </div>
-      </div>
+
+        <div class="work__box">
+          <button id="toggleBtn2" onclick="toggleParagraph('toggleBtn2', 'project2Text', 'Data Stack')" class="btn">Data Stack</button>
+          <div class="work__text" id="project2Text">
+              <div class="work__content-wrapper">
+                  <h3>Modern Data Stack Implementation for Job Ads Analytics</h3>
+
+                  <h1>Purpose</h1>
+                  <p>
+                    The project aims to implement the modern data stack to solve a real-world problem.
+                    In addition to using a certain number of technologies, there is a focus on working together in a data team.
+                    This includes both agile development and being able to use git and github in a team.
+                  </p>
+
+                  <h1>Problem</h1>
+                  <p>
+                    The company Arbetskollen AB wants to build a data pipeline that serves a dashboard to visualize statistics for job advertisements. 
+                    This could be a dimension to help future students find the right field to study in or for job seekers to more easily navigate between different professions.
+                  </p>
+                  
+                  <h1>Solution</h1>
+                  <p>
+                    The final solution is a robust data pipeline and reporting system built to ingest, transform, and visualize job advertisement data from Arbetsförmedlingens API. 
+                    The data modeling is based on a star schema, chosen for its simplicity and efficiency in supporting analytical queries and reporting.
+                    Data flows through a well-structured data architecture with three layers:
+                    <ul>
+                      <li>Staging layer (schema: staging), Stores raw API data.</li>
+                      <li>Transformation layer (schema: warehouse), Cleans and processes data using DBT.</li>
+                      <li>resentation layer (schema: marts), Contains aggregated and refined data ready for reporting and visualization.</li>
+                    </ul>
+                  </p>
+                  <p>
+                    The pipeline uses Python and DLT to fetch and load data into Snowflake, while DBT performs advanced transformations and metric calculations. 
+                    The final data is visualized using a Streamlit dashboard, which includes a home screen and navigation menu for improved user experience.
+                    This architecture ensures clean, reliable, and easily accessible data for stakeholders, with efficient performance and maintainability.
+                  </p>
+              </div>
+              <div class="work__image-box">
+                  <!-- <video class="work__image" controls autoplay loop muted>
+                    <source src="videoplayback.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video> -->
+              </div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
-
-    <!-- ***** Clients ***** -->
 
     <section class="client" id="clients">
       <div class="row">
@@ -134,7 +175,7 @@
             <p>
               Hi, I'm Attapon Sayod, and I'm 22 years old (turning 23 this October). 
               Originally from Thailand, I moved to Sweden when I was four, so I've essentially grown up here. 
-              I recently relocated to Stockholm from Arboga to pursue my passion for data engineering. 
+              I relocated to Stockholm from Arboga to pursue my passion for data engineering. 
               Outside of my professional aspirations, I'm deeply interested in fitness, particularly Muay Thai and MMA, and I enjoy watching UFC.
             </p>
             <!-- Provide a link to your resume -->
