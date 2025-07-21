@@ -520,7 +520,7 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: row; /* Arrange text and video side-by-side by default */
     align-items: stretch; /* Align content to the top */
-    gap: 3rem; /* Space between the text content and the video box */
+    gap: 5rem; /* Space between the text content and the video box */
 
     margin-top: 1rem;
     max-width: 1200px; /* Set a maximum width for the text content */
@@ -582,6 +582,15 @@ max-height: 5000px; /* Example: A value larger than the max possible height of y
     display: block; /* Removes inline spacing from default video tag */
     object-fit: cover; /* Fills the box more naturally, adjust as needed */
     background-color: black; /* Optional: match the background if needed */
+}
+
+.work__image-box2 {
+    flex: 1;
+    min-width: 0; /* REMOVE 800px */
+    max-width: 600px; /* Optional constraint */
+    height: auto;
+    margin-left: 0; /* REMOVE THIS TOO */
+    margin-top: 25rem; /* Space between text and video */
 }
 
 .work__list {
